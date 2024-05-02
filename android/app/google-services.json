@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "848561654074",
+    "project_id": "phoneauthentication-efabf",
+    "storage_bucket": "phoneauthentication-efabf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:848561654074:android:f2f98745709f901414e803",
+        "android_client_info": {
+          "package_name": "com.example.astro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "848561654074-k42vuu04srk9odvkcu4bj7k0j3lbr16l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUzY3jMoBA934E8FrioHGC6-KUQnjQx0E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "848561654074-k42vuu04srk9odvkcu4bj7k0j3lbr16l.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "848561654074-tleilbbhkodtfrhplogpddmskmg5filb.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.astro"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
