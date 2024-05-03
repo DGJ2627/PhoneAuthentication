@@ -149,9 +149,12 @@
 //     );
 //   }
 // }
+import 'package:astro/screens/loginsystem/OTPScreen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
 import '../../constants/ImageString.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -211,13 +214,18 @@ class LoginScreen extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Container(
+                                    alignment: Alignment.center,
+                                    height: 50,
                                     width: 50,
-                                    color: Colors.red,
+                                    decoration: BoxDecoration(
+                                     border: Border.all(color: const Color(0xff8C0944)),
+
+                                    ),
+                                    child: const Text("+91",style: TextStyle(color: Color(0xff8C0944),fontSize: 18),),
                                   ),
 
                                   Container(
                                     width: 250,
-                                    color: Colors.yellow,
                                     child: TextFormField(
                                       controller: phoneNoController,
                                       decoration: const InputDecoration(
@@ -242,8 +250,20 @@ class LoginScreen extends StatelessWidget {
                           Align(
                             alignment: Alignment.bottomRight,
                             child: GestureDetector(
-                              onTap: () {
+                              onTap: () async{
+
                                 if (_formKey.currentState!.validate()) {
+                                  await FirebaseAuth.instance.verifyPhoneNumber(
+                                      verificationCompleted: (PhoneAuthCredential credential ){
+
+                                      },
+                                      verificationFailed: (FirebaseAuthException ex){},
+                                      codeSent: (String verification, int? resendtoken){
+                                        Get.to( OTPScreen(vericationed: verification,));
+                                      },
+                                      codeAutoRetrievalTimeout: (String verification){},
+                                    phoneNumber: "+91${phoneNoController.text}",
+                                  );
                                   // Submit your form or perform any necessary action
                                 }
                               },
